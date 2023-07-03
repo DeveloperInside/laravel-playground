@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Cards;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,4 +40,8 @@ Route::get('/list/{id}', function($id) {
     return response([
         'listing' => Listing::find($id)
     ]);
+});
+
+Route::get('cards', function() {
+    return Cards::all();
 });

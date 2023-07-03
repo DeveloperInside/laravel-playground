@@ -20,11 +20,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Cards::create([
-            "id" => 0,
-            "class" => "joker",
-            "type" => "heart",
-            "value" => 10
-        ]);
+
+        // Cards::create([
+        //     "id" => 0,
+        //     "class" => "joker",
+        //     "type" => "heart",
+        //     "value" => 10
+        // ]);
+
+        Cards::factory(6)->create();
     }
 }
