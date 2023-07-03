@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Listing;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'name' => 'Enes',
+        'surname' => 'Hançer'
+    ]);
+});
+
+Route::get('/hello', function () {
+    return 'hello-world';
+});
+
+Route::get('/posts/{id}', function($id) {
+    return response('Post ' . $id);
+})->where('id', '[0-9]+');
+
+Route::get('/search', function(Request $req) {
+    // dd($req);
+    return response('Search Parameters ' . $req->name);
+});
+
+Route::get('/list/{id}', function($id) {
+    return response([
+        'listing' => Listing::find($id)
+    ]);
 });
